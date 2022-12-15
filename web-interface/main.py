@@ -1,6 +1,8 @@
 from flask import Flask, make_response, render_template, request, url_for, redirect,jsonify
 import os
 import re
+import uuid
+
 
 
 app = Flask(__name__)
@@ -17,9 +19,12 @@ def address_get():
     json_data = []
     for file in os.listdir('./web-interface/static/changed-images'):
         if pattern.match(file):
-            path = "{}".format( url_for('static', filename='changed-images/' + file) )
+            src = "{}".format( url_for('static', filename='changed-images/' + file) )
+            id = str(uuid.uuid4())
             json_data.append({
-                "url": path
+                "src": src
+                ,"id": id,
+                "name": file
             })
     return jsonify(json_data)
 

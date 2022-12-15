@@ -8,7 +8,10 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='styles/show.css') }}"
     />
-    <script src="{{ url_for('static', filename='scripts/img-load.js') }}"></script>
+    <script
+      src="{{ url_for('static', filename='scripts/img-load.js') }}"
+      type="module"
+    ></script>
     <title>Document</title>
   </head>
 
@@ -37,17 +40,7 @@
         <ul></ul>
       </main>
     </template>
-    <!-- <header>
-      <h1>ここにh1タイトル</h1>
-      <ul>
-        <li>
-          <a>一つ目</a>
-        </li>
-        <li>
-          <a>二つ目</a>
-        </li>
-      </ul>
-    </header> -->
+    <div id="app"></div>
     <!-- <main>
       <ul>
         <li>

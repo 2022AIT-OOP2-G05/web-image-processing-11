@@ -1,30 +1,10 @@
-const getImg = async () => {
-  const response = await fetch("/images", {
-    method: "GET",
-  });
+import { MainComponent } from "./components/main-item.js";
+import { HeaderComponent } from "./components/header.js";
+class Main {
+  constructor() {
+    new MainComponent("main-template", "app", "main", false);
+    new HeaderComponent("header-template", "app", "header", true);
+  }
+}
 
-  const data = await response.json();
-  return data;
-};
-
-getImg();
-
-const renderImg = async () => {
-  const data = await getImg();
-
-  const ul = document.querySelector("#img");
-
-  console.log(data);
-
-  data.forEach((img) => {
-    const li = document.createElement("li");
-    li.classList.add("js-img-item");
-    const imgElement = document.createElement("img");
-    imgElement.src = img.url;
-    imgElement.classList.add("js-img");
-    li.appendChild(imgElement);
-    ul.appendChild(li);
-  });
-};
-
-renderImg();
+new Main();
