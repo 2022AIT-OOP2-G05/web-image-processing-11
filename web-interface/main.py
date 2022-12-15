@@ -29,6 +29,10 @@ def address_post():
 def index():
     return render_template("index.html")
 
+@app.route('/show')
+def show():
+    return render_template("show.html")
+
 if __name__ == "__main__":
     # debugモードが不要の場合は、debug=Trueを消してください
     app.run(debug=True)
