@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
+      href="{{ url_for('static', filename='styles/style.css') }}"
     />
-    <script src="../static/main.js" defer></script>
+    <script
+      src="{{ url_for('static', filename='scripts/main.js') }}"
+      defer
+    ></script>
     <title>Document</title>
   </head>
 

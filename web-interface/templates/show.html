@@ -6,18 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='show.css') }}"
+      href="{{ url_for('static', filename='styles/show.css') }}"
     />
-    <script src="{{ url_for('static', filename='img-load.js')}}"></script>
+    <script src="{{ url_for('static', filename='scripts/img-load.js') }}"></script>
     <title>Document</title>
   </head>
+
   <body>
-    <template id="img-template">
+    <template id="header-template">
+      <header>
+        <h1>ここにh1タイトル</h1>
+        <ul>
+          <li>
+            <a>一つ目</a>
+          </li>
+          <li>
+            <a>二つ目</a>
+          </li>
+        </ul>
+      </header>
+    </template>
+    <template id="img-item-template">
       <li>
         <img />
+        <div class="file-name"></div>
       </li>
     </template>
-    <header>
+    <template id="main-template">
+      <main>
+        <ul></ul>
+      </main>
+    </template>
+    <!-- <header>
       <h1>ここにh1タイトル</h1>
       <ul>
         <li>
@@ -27,9 +47,22 @@
           <a>二つ目</a>
         </li>
       </ul>
-    </header>
-    <main>
-      <ul id="img"></ul>
-    </main>
+    </header> -->
+    <!-- <main>
+      <ul>
+        <li>
+          <img
+            src="../static/images/6632749D-F045-4866-89A2-88EDF54477E5.jpeg"
+          />
+          <div class="file-name">ファイルの名前</div>
+        </li>
+        <li>
+          <img
+            src="../static/images/6632749D-F045-4866-89A2-88EDF54477E5.jpeg"
+          />
+          <div class="file-name">ファイルの名前</div>
+        </li>
+      </ul>
+    </main> -->
   </body>
 </html>
