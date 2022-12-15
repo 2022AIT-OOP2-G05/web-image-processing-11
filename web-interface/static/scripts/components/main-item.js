@@ -3,8 +3,9 @@ import { ItemComponent } from "./item.js";
 import { fetchBase } from "../utils/fetch.js";
 
 export class MainComponent extends Components {
-  constructor(templateId, newElId, afterBegin) {
-    super(templateId, newElId, afterBegin);
+  constructor(templateId, hostId, newElId, afterBegin, url) {
+    super(templateId, hostId, newElId, afterBegin);
+    this.url = url;
     this._attach(afterBegin);
     this._configure();
     this._renderContent();
@@ -16,7 +17,8 @@ export class MainComponent extends Components {
   }
 
   async _renderContent() {
-    const data = await fetchBase.fetch("/images");
+    console.log(this.url);
+    const data = await fetchBase.fetch(this.url);
 
     data.forEach(
       (item) => new ItemComponent("img-item-template", this.contentEl.id, item)
