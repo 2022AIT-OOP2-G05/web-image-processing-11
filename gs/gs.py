@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-im = cv2.imread('lena.jpg')
+im = cv2.imread('6632749D-F045-4866-89A2-88EDF54477E5.jpeg')
 print(im.shape)
 # (225, 400, 3)
 

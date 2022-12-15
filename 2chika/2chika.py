@@ -1,7 +1,7 @@
 import cv2
 
 # 画像の読み込み
-img = cv2.imread("Lena.jpg", 0)
+img = cv2.imread("6632749D-F045-4866-89A2-88EDF54477E5.jpeg", 0)
 
 # 閾値の設定
 threshold = 100
