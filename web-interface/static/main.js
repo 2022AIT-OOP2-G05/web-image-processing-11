@@ -19,3 +19,13 @@ const postImg = async () => {
   const data = await response.json();
   console.log(data);
 };
+
+const getImg = async () => {
+  const response = await fetch("/images", {
+    method: "GET",
+  });
+
+  console.log(response);
+};
+
+getImg();
