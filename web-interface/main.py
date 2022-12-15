@@ -14,28 +14,14 @@ def address_get():
     patternStr = '.+\.(jpg|png|jpeg|heic)'
     pattern = re.compile(patternStr)
     
-    # with open('./web-interface/url.json') as f:
-    #         json_data = json.load(f)
-    # jsonの作成
     json_data = []
     for file in os.listdir('./web-interface/static/changed-images'):
         if pattern.match(file):
+            path = "{}".format( url_for('static', filename='changed-images/' + file) )
             json_data.append({
-                "url": "../static/changed-images/" + file,
+                "url": path
             })
-
-    print(json_data)
     return jsonify(json_data)
-
-    
-
-
-
-
-
-
-
-
 
 @app.route('/upload', methods=["POST"])
 def address_post():
