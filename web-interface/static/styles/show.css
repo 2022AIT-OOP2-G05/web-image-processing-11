@@ -3,6 +3,13 @@
   padding: 0;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 html body {
   width: 100vw;
   height: 100vh;
@@ -47,5 +54,4 @@ html body main ul li img {
 }
 html body main ul li div {
   height: 25px;
-}
-/*# sourceMappingURL=show.css.map */
+}/*# sourceMappingURL=show.css.map */

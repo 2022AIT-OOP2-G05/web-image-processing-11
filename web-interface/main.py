@@ -13,13 +13,13 @@ app.config["JSON_AS_ASCII"] = False  # 日本語などのASCII以外の文字列
 @app.route('/images', methods=["GET"])
 def address_get(): 
     # 画像ファイルのパスをjsonで返す
-    patternStr = '.+\.(jpg|png|jpeg|heic)'
+    patternStr = '.+\.(jpg|png|jpeg)'
     pattern = re.compile(patternStr)
     
     json_data = []
-    for file in os.listdir('./web-interface/static/changed-images'):
+    for file in os.listdir('./web-interface/static/images'):
         if pattern.match(file):
-            src = "{}".format( url_for('static', filename='changed-images/' + file) )
+            src = "{}".format( url_for('static', filename='images/' + file) )
             id = str(uuid.uuid4())
             json_data.append({
                 "src": src
