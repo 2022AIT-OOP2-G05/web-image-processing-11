@@ -12,7 +12,7 @@ getImg();
 const renderImg = async () => {
   const data = await getImg();
 
-  const ul = document.querySelector(".js-img-wrapper");
+  const ul = document.querySelector("#img");
 
   console.log(data);
 

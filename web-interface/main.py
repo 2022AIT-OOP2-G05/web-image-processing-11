@@ -21,7 +21,7 @@ def address_get():
     for file in os.listdir('./web-interface/static/changed-images'):
         if pattern.match(file):
             json_data.append({
-                "url": "{{ url_for('static', filename='changed-images/${file}') }}"
+                "url": "../static/changed-images/" + file,
             })
 
     print(json_data)
