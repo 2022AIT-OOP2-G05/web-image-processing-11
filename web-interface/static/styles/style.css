@@ -1,6 +1,6 @@
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 html body {
@@ -32,20 +32,17 @@ html body main {
   height: 100%;
   padding-top: 50px;
 }
-html body main ul {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 10px 20px;
+html body main form {
+  margin-top: 70px;
+  width: calc(100% - 100px);
+  margin-right: 50px;
+  margin-left: 50px;
+  font-size: 0;
 }
-html body main ul li {
-  width: 300px;
-  height: 300px;
-  list-style: none;
+html body main form input {
+  width: calc(100% - 200px);
 }
-html body main ul li img {
-  height: calc(100% - 25px);
-}
-html body main ul li div {
-  height: 25px;
-}
-/*# sourceMappingURL=show.css.map */
+html body main form button {
+  width: 200px;
+  border: 1px solid black;
+}/*# sourceMappingURL=style.css.map */

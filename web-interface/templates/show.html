@@ -6,26 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='show.css') }}"
+      href="{{ url_for('static', filename='styles/show.css') }}"
     />
-    <script src="{{ url_for('static', filename='img-load.js')}}"></script>
+    <script
+      src="{{ url_for('static', filename='scripts/img-load.js') }}"
+      type="module"
+    ></script>
     <title>Document</title>
   </head>
 
   <body>
-    <header>
-      <h1>ここにh1タイトル</h1>
-      <ul>
-        <li>
-          <a>一つ目</a>
-        </li>
-        <li>
-          <a>二つ目</a>
-        </li>
-      </ul>
-    </header>
-    <main>
-      <ul id="img"></ul>
-    </main>
+    <template id="header-template">
+      <header>
+        <h1>ここにh1タイトル</h1>
+        <ul>
+          <li>
+            <a>一つ目</a>
+          </li>
+          <li>
+            <a>二つ目</a>
+          </li>
+        </ul>
+      </header>
+    </template>
+    <template id="img-item-template">
+      <li>
+        <img />
+        <div class="file-name"></div>
+      </li>
+    </template>
+    <template id="main-template">
+      <main>
+        <ul></ul>
+      </main>
+    </template>
+    <div id="app"></div>
   </body>
 </html>

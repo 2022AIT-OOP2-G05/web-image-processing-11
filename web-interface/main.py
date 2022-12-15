@@ -1,6 +1,8 @@
 from flask import Flask, make_response, render_template, request, url_for, redirect,jsonify
 import os
 import re
+import uuid
+
 
 
 app = Flask(__name__)
@@ -11,31 +13,20 @@ app.config["JSON_AS_ASCII"] = False  # 日本語などのASCII以外の文字列
 @app.route('/images', methods=["GET"])
 def address_get(): 
     # 画像ファイルのパスをjsonで返す
-    patternStr = '.+\.(jpg|png|jpeg|heic)'
+    patternStr = '.+\.(jpg|png|jpeg)'
     pattern = re.compile(patternStr)
     
-    # with open('./web-interface/url.json') as f:
-    #         json_data = json.load(f)
-    # jsonの作成
     json_data = []
-    for file in os.listdir('./web-interface/static/changed-images'):
+    for file in os.listdir('./web-interface/static/images'):
         if pattern.match(file):
+            src = "{}".format( url_for('static', filename='images/' + file) )
+            id = str(uuid.uuid4())
             json_data.append({
-                "url": "../static/changed-images/" + file,
+                "src": src
+                ,"id": id,
+                "name": file
             })
-
-    print(json_data)
     return jsonify(json_data)
-
-    
-
-
-
-
-
-
-
-
 
 @app.route('/upload', methods=["POST"])
 def address_post():
