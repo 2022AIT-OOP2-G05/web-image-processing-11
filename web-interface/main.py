@@ -1,21 +1,22 @@
-from flask import Flask, request, render_template, jsonify
-import json  # Python標準のJSONライブラリを読み込んで、データの保存等に使用する
+from flask import Flask, render_template, request, url_for, redirect
+import os
 
 app = Flask(__name__)
 app.config["JSON_AS_ASCII"] = False  # 日本語などのASCII以外の文字列を返したい場合は、こちらを設定しておく
 
 
 # # http://127.0.0.1:5000/address
-# @app.route('/', methods=["GET"])
-# def address_get():
-#     return 
+@app.route('/images', methods=["GET"])
+def address_get():
+
+    return 
 
 
-# @app.route('/address', methods=["POST"])
-# def address_post():
-
-
-#         return 
+@app.route('/upload', methods=["POST"])
+def address_post():
+    file = request.files['file']
+    file.save("./static/images/" + file.filename , "wb")
+    return 
 
 # http://127.0.0.1:5000/ 
 @app.route('/')
