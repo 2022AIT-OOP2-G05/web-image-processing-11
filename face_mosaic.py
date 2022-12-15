@@ -1,4 +1,4 @@
-import numpy as np
+
 import cv2
 
 
@@ -17,43 +17,25 @@ def face_mosaic(image_name : str):
 
     image = cv2.imread(image_name)
 
-    face_cascade_path = '/usr/local/opt/opencv/share/'\
-                    'OpenCV/haarcascades/haarcascade_frontalface_default.xml'
+    face_cascade_path = 'haarcascade_frontalface_default.xml'
+    
 
     face_cascade = cv2.CascadeClassifier(face_cascade_path)
 
-    image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-    faces = face_cascade.detectMultiScale(image_gray)
+    faces = face_cascade.detectMultiScale(image)
 
     for x, y, w, h in faces:
-        
+      
         dst_face = mosaic_area(image, x, y, w, h)
     
 
 
     cv2.imwrite('mosaic.png', dst_face)
 
-    
 
-
-
-
-    
-
-
-
-
-
-            
-    
-    
-
-
-
-
-if __name__ == "__main__":
-    face_mosaic('uchitane_near.png')
+#if __name__ == "__main__":
+ #   face_mosaic('uchitane_near.png')
     
 
 
