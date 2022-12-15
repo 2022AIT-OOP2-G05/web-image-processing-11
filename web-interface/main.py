@@ -18,10 +18,10 @@ def address_get():
     #         json_data = json.load(f)
     # jsonの作成
     json_data = []
-    for file in os.listdir('./web-interface/static/images'):
+    for file in os.listdir('./web-interface/static/changed-images'):
         if pattern.match(file):
             json_data.append({
-                "url": "{{ url_for('static', filename='images/${file}') }}"
+                "url": "{{ url_for('static', filename='changed-images/${file}') }}"
             })
 
     print(json_data)
