@@ -13,12 +13,13 @@ const postImg = async () => {
   formData.append("file", fileInput.files[0]);
 
   try {
-    await fetch("/upload", {
-      method: "POST",
-      body: formData,
-    });
-
-    fileInput.value = "";
+    if (fileInput.files[0]) {
+      await fetch("/upload", {
+        method: "POST",
+        body: formData,
+      });
+      fileInput.value = "";
+    }
   } catch (err) {
     console.log(err);
   }
