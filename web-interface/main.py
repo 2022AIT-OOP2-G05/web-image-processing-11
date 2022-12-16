@@ -14,7 +14,6 @@ def binarization_get():
     patternStr = '.+\.(jpg|png|jpeg)'
     pattern = re.compile(patternStr)
     
-    print("a")
     json_data = []
     for file in os.listdir('./web-interface/static/images/binarization'):
         if pattern.match(file):
@@ -83,7 +82,7 @@ def gs_get():
 
 
 @app.route('/images', methods=["GET"])
-def address_get(): 
+def get_images(): 
     # 画像ファイルのパスをjsonで返す
     patternStr = '.+\.(jpg|png|jpeg)'
     pattern = re.compile(patternStr)
