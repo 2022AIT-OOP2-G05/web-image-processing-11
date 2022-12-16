@@ -9,14 +9,16 @@
       href="{{ url_for('static', filename='styles/show.css') }}"
     />
     <script
-      src="{{ url_for('static', filename='scripts/binarization-load.js') }}"
+      src="{{ url_for('static', filename='scripts/pages/binarization-load.js') }}"
       type="module"
     ></script>
     <title>Document</title>
   </head>
+  <!-- styleや要素の変更はtemplateタグの中にお願いします -->
 
   <body>
     <template id="header-template">
+      <!-- headerの読み込み用 -->
       <header>
         <h1>ここにh1タイトル</h1>
         <ul>
@@ -36,12 +38,14 @@
       </header>
     </template>
     <template id="img-item-template">
+      <!-- 取得した画像一個分 -->
       <li>
         <img />
         <div class="file-name"></div>
       </li>
     </template>
     <template id="main-template">
+      <!-- 取得した画像を表示する枠組み -->
       <main>
         <ul></ul>
       </main>
