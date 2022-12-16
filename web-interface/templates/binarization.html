@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/show.css') }}"
+    />
+    <script
+      src="{{ url_for('static', filename='scripts/binarization-load.js') }}"
+      type="module"
+    ></script>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <template id="header-template">
+      <header>
+        <h1>ここにh1タイトル</h1>
+        <ul>
+          <li>
+            <a href="/binarization_temp">binarization</a>
+          </li>
+          <li>
+            <a href="/face_mosaic-temp">face_mosaic</a>
+          </li>
+          <li>
+            <a href="/faceframe-temp">faceframe</a>
+          </li>
+          <li>
+            <a href="/gs-temp">grayscale</a>
+          </li>
+        </ul>
+      </header>
+    </template>
+    <template id="img-item-template">
+      <li>
+        <img />
+        <div class="file-name"></div>
+      </li>
+    </template>
+    <template id="main-template">
+      <main>
+        <ul></ul>
+      </main>
+    </template>
+    <div id="app"></div>
+  </body>
+</html>
