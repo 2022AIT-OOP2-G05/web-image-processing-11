@@ -1,3 +1,5 @@
+import { fetchBase } from "./utils/fetch.js";
+
 class Main {
   constructor() {
     this.form = document.getElementById("form");
@@ -17,19 +19,11 @@ class Main {
   async _postImg() {
     const formData = new FormData(this.form);
     const fileInput = document.getElementById("file-input");
-
     formData.append("file", fileInput.files[0]);
 
-    try {
-      if (fileInput.files[0]) {
-        await fetch("/upload", {
-          method: "POST",
-          body: formData,
-        });
-        fileInput.value = "";
-      }
-    } catch (err) {
-      console.log(err);
+    if (fileInput.value) {
+      await fetchBase.fetch("/upload", "POST", formData);
+      fileInput.value = "";
     }
   }
 }

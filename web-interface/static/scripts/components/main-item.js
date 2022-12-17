@@ -17,7 +17,6 @@ export class MainComponent extends Components {
   }
 
   async _renderContent() {
-    console.log(this.url);
     const data = await fetchBase.fetch(this.url);
 
     data.forEach(
