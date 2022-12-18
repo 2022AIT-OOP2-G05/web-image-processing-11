@@ -1,26 +1,31 @@
-const form = document.getElementById("form");
-const fileInput = document.getElementById("file-input");
+import { fetchBase } from "./utils/fetch.js";
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  postImg();
-});
+class Main {
+  constructor() {
+    this.form = document.getElementById("form");
+    this.fileInput = document.getElementById("file-input");
+    this._configure();
+  }
 
-const postImg = async () => {
-  const formData = new FormData(form);
-  const fileInput = document.getElementById("file-input");
+  _submitHandler(e) {
+    e.preventDefault();
+    this._postImg();
+  }
 
-  formData.append("file", fileInput.files[0]);
+  _configure() {
+    this.form.addEventListener("submit", this._submitHandler.bind(this));
+  }
 
-  try {
-    if (fileInput.files[0]) {
-      await fetch("/upload", {
-        method: "POST",
-        body: formData,
-      });
+  async _postImg() {
+    const formData = new FormData(this.form);
+    const fileInput = document.getElementById("file-input");
+    formData.append("file", fileInput.files[0]);
+
+    if (fileInput.value) {
+      await fetchBase.fetch("/upload", "POST", formData);
       fileInput.value = "";
     }
-  } catch (err) {
-    console.log(err);
   }
-};
+}
+
+new Main();
